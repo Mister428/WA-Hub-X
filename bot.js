@@ -1,13 +1,9 @@
-// 🔹 Charger dotenv si présent (local)
-try {
-  require('dotenv').config();
-} catch (err) {
-  console.log("Pas de fichier .env détecté, utilisation des variables d'environnement de Render.");
-}
+// Charger dotenv pour lire le fichier .env
+require('dotenv').config();
 
 const { Telegraf } = require('telegraf');
 
-// 🔹 Récupérer le token depuis .env ou Render
+// 🔹 Récupérer le token depuis .env
 const BOT_TOKEN = process.env.BOT_TOKEN;
 if (!BOT_TOKEN) {
   console.error("⚠️ Erreur : tu dois définir BOT_TOKEN dans les variables d'environnement !");
