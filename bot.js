@@ -1,21 +1,19 @@
-// Charger dotenv pour lire le fichier .env
-require('dotenv').config();
-
 const { Telegraf } = require('telegraf');
 
-// 🔹 Récupérer le token depuis .env
-const BOT_TOKEN = process.env.BOT_TOKEN;
+// 🔹 Mets ton token ici directement
+const BOT_TOKEN = '8028706978:AAFiOP9Cm3I4mBrraPFk7LPsgN1-MIRJCI0';
+
 if (!BOT_TOKEN) {
-  console.error("⚠️ Erreur : tu dois définir BOT_TOKEN dans les variables d'environnement !");
+  console.error("⚠️ Erreur : tu dois définir BOT_TOKEN !");
   process.exit(1);
 }
 
 const bot = new Telegraf(BOT_TOKEN);
 
-// 🔹 Tableau des 10 réactions
+// Tableau des 10 réactions
 const reactions = ['🔥','❤️','👍','😂','😮','😢','👏','💯','🤖','🚀'];
 
-// 🔹 Quand un message est publié dans le canal
+// Quand un message est publié dans le canal
 bot.on('channel_post', async (ctx) => {
   const messageId = ctx.channelPost.message_id;
   const chatId = ctx.channelPost.chat.id;
@@ -33,9 +31,9 @@ bot.on('channel_post', async (ctx) => {
   }
 });
 
-// 🔹 Lancer le bot
+// Lancer le bot
 bot.launch().then(() => console.log('Bot démarré et prêt !'));
 
-// 🔹 Arrêt propre
+// Arrêt propre
 process.once('SIGINT', () => bot.stop('SIGINT'));
 process.once('SIGTERM', () => bot.stop('SIGTERM'));
