@@ -1,6 +1,13 @@
+// 🔹 Charger dotenv si présent (local)
+try {
+  require('dotenv').config();
+} catch (err) {
+  console.log("Pas de fichier .env détecté, utilisation des variables d'environnement de Render.");
+}
+
 const { Telegraf } = require('telegraf');
 
-// 🔹 Récupérer le token depuis les variables d'environnement
+// 🔹 Récupérer le token depuis .env ou Render
 const BOT_TOKEN = process.env.BOT_TOKEN;
 if (!BOT_TOKEN) {
   console.error("⚠️ Erreur : tu dois définir BOT_TOKEN dans les variables d'environnement !");
@@ -9,7 +16,7 @@ if (!BOT_TOKEN) {
 
 const bot = new Telegraf(BOT_TOKEN);
 
-// 🔹 Les 10 réactions à envoyer
+// 🔹 Tableau des 10 réactions
 const reactions = ['🔥','❤️','👍','😂','😮','😢','👏','💯','🤖','🚀'];
 
 // 🔹 Quand un message est publié dans le canal
@@ -31,7 +38,7 @@ bot.on('channel_post', async (ctx) => {
 });
 
 // 🔹 Lancer le bot
-bot.launch().then(() => console.log('Bot démarré !'));
+bot.launch().then(() => console.log('Bot démarré et prêt !'));
 
 // 🔹 Arrêt propre
 process.once('SIGINT', () => bot.stop('SIGINT'));
