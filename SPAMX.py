@@ -5,26 +5,36 @@ import os
 from threading import Thread
 import sys
 
+CYAN = '\033[96m'
+GREEN = '\033[92m'
+RED = '\033[91m'
+YELLOW = '\033[93m'
+PURPLE = '\033[95m'
+BLUE = '\033[94m'
+BOLD = '\033[1m'
+RESET = '\033[0m'
+
 def clear_screen():
     os.system('cls' if os.name == 'nt' else 'clear')
 
 def print_banner():
     clear_screen()
-    print("""
+    print(f"""{CYAN}
     ╔══════════════════════════════════════════╗
-    ║  ██╗  ██╗██╗███╗   ██╗ █████╗ ███████╗  ║
-    ║  ██║  ██║██║████╗  ██║██╔══██╗██╔════╝  ║
-    ║  ███████║██║██╔██╗ ██║███████║█████╗    ║
-    ║  ██╔══██║██║██║╚██╗██║██╔══██║██╔══╝    ║
-    ║  ██║  ██║██║██║ ╚████║██║  ██║███████╗  ║
-    ║  ╚═╝  ╚═╝╚═╝╚═╝  ╚═══╝╚═╝  ╚═╝╚══════╝  ║
-    ║                                          ║
-    ║        Digital Crew 243 - Neo Edition    ║
-    ╚══════════════════════════════════════════╝
+    ║  {GREEN}██╗  ██╗██╗███╗   ██╗ █████╗ ███████╗  {CYAN}║
+    ║  {GREEN}██║  ██║██║████╗  ██║██╔══██╗██╔════╝  {CYAN}║
+    ║  {GREEN}███████║██║██╔██╗ ██║███████║█████╗    {CYAN}║
+    ║  {GREEN}██╔══██║██║██║╚██╗██║██╔══██║██╔══╝    {CYAN}║
+    ║  {GREEN}██║  ██║██║██║ ╚████║██║  ██║███████╗  {CYAN}║
+    ║  {GREEN}╚═╝  ╚═╝╚═╝╚═╝  ╚═══╝╚═╝  ╚═╝╚══════╝  {CYAN}║
+    ║                                        {CYAN}║
+    ║{BOLD}{YELLOW}        Digital Crew 243 - Neo     {CYAN}║
+    ╚══════════════════════════════════════════╝{RESET}
     """)
 
-def typewriter(text, delay=0.03):
-    for char in text:
+def typewriter(text, color=CYAN, delay=0.03):
+    colored_text = f"{color}{text}{RESET}"
+    for char in colored_text:
         sys.stdout.write(char)
         sys.stdout.flush()
         time.sleep(delay)
@@ -62,29 +72,29 @@ def spam_worker(phone_number, messages, spam_count, delay_range):
 
 def main():
     print_banner()
-    typewriter("INITIALIZING...", 0.02)
+    typewriter("INITIALIZING NEURALINK...", GREEN, 0.02)
     
-    typewriter("TARGET:", 0.02)
-    target_number = input("╠══[DC243]> PHONE: ").strip()
+    typewriter("TARGET ACQUISITION:", BLUE)
+    target_number = input(f"{PURPLE}╠══[DC243]> {RED}PHONE: {RESET}").strip()
     
-    typewriter("INTENSITY:", 0.02)
-    spam_count = int(input("╠══[DC243]> COUNT: "))
+    typewriter("FLOOD INTENSITY:", BLUE)
+    spam_count = int(input(f"{PURPLE}╠══[DC243]> {RED}COUNT: {RESET}"))
     
-    typewriter("TIMING:", 0.02)
-    delay_min = float(input("╠══[DC243]> MIN(s): "))
-    delay_max = float(input("╠══[DC243]> MAX(s): "))
+    typewriter("ATTACK TIMING:", BLUE)
+    delay_min = float(input(f"{PURPLE}╠══[DC243]> {RED}MIN(s): {RESET}"))
+    delay_max = float(input(f"{PURPLE}╠══[DC243]> {RED}MAX(s): {RESET}"))
     
     messages = load_spam_messages()
-    typewriter(f"LOADED: {len(messages)} MSG", 0.02)
+    typewriter(f"PAYLOADS LOADED: {len(messages)}", YELLOW)
     
     clear_screen()
     print_banner()
-    typewriter("LAUNCH? (Y/N)", 0.02)
-    confirm = input("╠══[DC243]> CONFIRM: ").lower()
+    typewriter("NEURALINK SYNC CONFIRMED?", RED)
+    confirm = input(f"{PURPLE}╠══[DC243]> {RED}LAUNCH (Y/N): {RESET}").lower()
     
     if confirm == 'y':
-        typewriter("FLOOD ACTIVE...", 0.02)
-        typewriter("DC243 ONLINE", 0.02)
+        typewriter("FLOOD SEQUENCE ACTIVE...", GREEN)
+        typewriter("DIGITAL CREW 243 - ONLINE", YELLOW)
         
         spam_thread = Thread(target=spam_worker, args=(target_number, messages, spam_count, (delay_min, delay_max)))
         spam_thread.daemon = True
@@ -94,9 +104,9 @@ def main():
             while True:
                 time.sleep(1)
         except KeyboardInterrupt:
-            typewriter("ABORTED", 0.02)
+            typewriter("NEURALINK DISCONNECTED", RED)
     else:
-        typewriter("CANCELLED", 0.02)
+        typewriter("OPERATION CANCELLED", RED)
 
 if __name__ == "__main__":
     main()
