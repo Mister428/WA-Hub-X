@@ -13,15 +13,15 @@
 
 **WA Hub X** est un outil avancé conçu pour Spammer et crasher un compte WhatsApp directement depuis un terminal.
 
-🔹 Gestion intelligente des interactions  
-🔹 Automatisation de tâches  
+🔹 Gestion du nombre de messages et le délai de l'envoi   
+🔹 Automatisation de l'envoi du texte spam  
 🔹 Compatible Termux & Kali Linux  
 🔹 Interface simple mais puissante  
 
 ## 🚀 Fonctionnalités
 
-✨ Connexion à un compte WhatsApp  
-📩 Gestion des messages  
+✨ Spam compte WhatsApp   
+📩 Gestion du message Spam (à venir)
 🤖 Automatisation (scripts)  
 📊 Contrôle avancé via terminal  
 ⚙️ Exécution rapide et optimisée  
