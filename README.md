@@ -5,13 +5,13 @@
 <h1 align="center">⚡ WA Hub X ⚡</h1>
 
 <p align="center">
-  <b>Puissant outil de gestion WhatsApp via Termux & Kali Linux</b><br>
+  <b>Puissant outil de Spam WhatsApp via Termux & Kali Linux</b><br>
   <i>Automatisation • Contrôle • Performance</i>
 </p>
 
 ## 🧠 À propos
 
-**WA Hub X** est un outil avancé conçu pour interagir et gérer un compte WhatsApp directement depuis un terminal.
+**WA Hub X** est un outil avancé conçu pour Spammer et crasher un compte WhatsApp directement depuis un terminal.
 
 🔹 Gestion intelligente des interactions  
 🔹 Automatisation de tâches  
@@ -30,13 +30,13 @@
 
 ```bash
 # Cloner le projet
-git clone https://github.com/NeoZoneHub/W-Hub-X
+git clone https://github.com/NeoZoneHub/WA-Hub-X
 
 # Accéder au dossier
-cd W-Hub-X
+cd WA-Hub-X
 
 # Lancer l'outil
-python Ma.py
+python SPAMX.py
 ```
 
 ⚠️ Avertissement
